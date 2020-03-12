@@ -1,0 +1,29 @@
+
+{% block content %}{% endblock %}
+<hr>
+<p><h4>Help me by rating my website everytime!
+    This will help with my academical research!
+</h4></p>
+<p></p>
+<p></p>
+<div class="parent" >
+<form  method="post">
+
+{% csrf_token %}
+
+{{ grade_form.as_p }}
+<input type="submit" value="Vote">
+</form>
+</div>>
+<p><h4>You can also add short comment about your experience with this website.
+</h4></p>
+<form  method="post">
+
+{% csrf_token %}
+
+{{ comment_form.as_p }}
+<input type="submit" value="Vote">
+</form>
+
+</body>
+</html>

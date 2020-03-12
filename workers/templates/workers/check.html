@@ -1,0 +1,23 @@
+{% load render_table from django_tables2 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'mycalendar/style.css' %}">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta charset="UTF-8">
+    <title>Check website</title>
+</head>
+<body>
+{% load extra %}
+
+<p>Work days</p>
+<p>{% render_table var %}</p>
+
+<p><form method="get" action="/workers">
+    <button type="submit">Back</button><p/>
+  </form>
+
+
+</body>
+</html>
