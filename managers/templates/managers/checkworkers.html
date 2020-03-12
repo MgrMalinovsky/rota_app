@@ -1,0 +1,38 @@
+{% extends 'workers/grades.html' %}
+
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="{% static 'mycalendar/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Check workerks</title>
+</head>
+<body>
+<p>Check availability of your staff</p>
+<form method="post">
+    {% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Select">
+            </form>
+{% if list1 %}
+    <p>Workers available in selected day:</p>
+<ul class="list-group">
+
+    {% for x in list1 %}
+        <li class="list-group-item">{{ x }}</li>
+
+        {% endfor %}
+        </ul>
+    {% else %}
+<p>No workers</p>
+    {% endif %}
+<p><form method="get" action="/managers">
+    <button type="submit">Back</button><p/>
+</body>
+</html>
+
+{% endblock %}

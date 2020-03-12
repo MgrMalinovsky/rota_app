@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'mycalendar/style.css' %}">
+<style>
+    button {
+        width: 35%;
+    }
+</style>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<h1>This is managers test site</h1>
+ <p><form method="get" action="/managers/checkworkers">
+    <button type="submit">Check availability of the workers</button><p/>
+  </form>
+ <p><form method="get" action="/managers/checkrota">
+    <button type="submit">Check Rota for given week</button><p/>
+  </form>
+<p><form method="get" action="/">
+    <button type="submit">Back to index</button><p/>
+</body>
+</html>
