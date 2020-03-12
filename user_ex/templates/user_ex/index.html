@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'mycalendar/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+</head>
+<body>
+{% load extra %}
+    <h1>This is the index page</h1>
+        {% if user.is_authenticated %}
+        <p>Welcome {{ user.username }} !!!</p>
+            <form method="get" action="/accounts/logout">
+         <button type="submit">logout</button>
+                </form>
+            {% if request.user|has_group:"workers" %}
+            <p><form method="get" action="/workers/">
+            <button type="submit">Continue</button><p/>
+            </form>
+            {% elif request.user|has_group:"managers" %}
+             <p><form method="get" action="/managers/">
+            <button type="submit">Continue</button><p/>
+            </form>
+            {% else %}
+                <p>You do not belong to group</p>
+                {% endif %}
+        {% else %}
+            <p>Login in to start using website</p>
+            <form method="get" action="/accounts/login">
+            <button type="submit">Continue</button>
+            </form>
+        {% endif %}
+</body>
+</html>
